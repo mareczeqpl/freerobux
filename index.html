@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DARMOWE ROBUXY 2026 !!!</title>
+    <style>
+        body {
+            background-color: #191B1D;
+            color: #FFFFFF;
+            font-family: 'Arial Black', Gadget, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            color: #00E6FF;
+            text-shadow: 3px 3px #FF0055;
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #FFFF00;
+            margin-bottom: 40px;
+        }
+
+        .counter-box {
+            font-size: 2.5rem;
+            background: #22252A;
+            border: 4px solid #00E6FF;
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 0 20px rgba(0, 230, 255, 0.5);
+        }
+
+        #robux-count {
+            color: #00FF44;
+            font-weight: bold;
+        }
+
+        /* Styl głównego przycisku */
+        .click-btn {
+            background: radial-gradient(circle, #FF0055, #990033);
+            color: white;
+            border: 5px solid #FFFFFF;
+            padding: 30px 60px;
+            font-size: 2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 0, 85, 0.7);
+            transition: transform 0.1s ease, filter 0.2s;
+        }
+
+        .click-btn:active {
+            transform: scale(0.9) rotate(5deg);
+        }
+
+        /* Klasa dodawana przez JS przy każdym kliknięciu, aby przycisk wirował */
+        .spin {
+            animation: spinAnim 0.4s linear;
+        }
+
+        @keyframes spinAnim {
+            0% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.2) rotate(180deg); }
+            100% { transform: scale(1) rotate(360deg); }
+        }
+
+        /* Komunikaty pod spodem */
+        #status-message {
+            margin-top: 40px;
+            font-size: 1.3rem;
+            color: #FFCC00;
+            min-height: 50px;
+        }
+
+        .alert-payout {
+            color: #FF0055 !important;
+            font-size: 1.8rem !important;
+            animation: blink 0.5s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>KLIKNIJ ROBUX PO FREE ROBUXY!!!</h1>
+    <div class="subtitle">🔥 Najlepszy generator online 2026 Bez Weryfikacji! 🔥</div>
+
+    <div class="counter-box">
+        Twoje Robuxy: <span id="robux-count">0</span> R$
+    </div>
+
+    <br>
+
+    <!-- Przycisk do klikania -->
+    <button class="click-btn" id="click-me-btn" onclick="addRobux()">KLIKAJ TUTAJ!</button>
+
+    <!-- Miejsce na śmieszne komunikaty w stylu ptoszka -->
+    <div id="status-message">Kliknij przycisk, aby rozpocząć darmowe dodawanie...</div>
+
+    <script>
+        let count = 0;
+        const countDisplay = document.getElementById('robux-count');
+        const messageDisplay = document.getElementById('status-message');
+        const btn = document.getElementById('click-me-btn');
+
+        // Śmieszne teksty zmieniające się wraz z liczbą kliknięć
+        const alerts = {
+            5: "Oho! System zaczyna liczyć...",
+            15: "Serwery Roblox płaczą, ale dają dalej!",
+            30: "Uważaj, admin już Cię widzi! Klikaj szybciej!",
+            50: "Przekroczono limit prędkości pobierania waluty!",
+            75: "Baza danych została zhakowana pomyślnie. Zaraz wypłata!",
+            100: "⚠️ WYKRYTO ANTIBOTA! Musisz kliknąć jeszcze 50 razy, aby potwierdzić, że jesteś człowiekiem!"
+        };
+
+        function addRobux() {
+            // Dodawanie losowej liczby Robuxów (od 500 do 2500 za kliknięcie)
+            let randomRobux = Math.floor(Math.random() * 2000) + 500;
+            count += randomRobux;
+            countDisplay.innerText = count.toLocaleString(); // Ładne formatowanie liczb (np. 10 000)
+
+            // Efekt obracania przycisku po kliknięciu
+            btn.classList.remove('spin');
+            void btn.offsetWidth; // Reset animacji CSS
+            btn.classList.add('spin');
+
+            // Zmiana komunikatów tekstowych w zależności od poziomu bogactwa
+            let clickCount = parseInt(sessionStorage.getItem('clicks') || 0) + 1;
+            sessionStorage.setItem('clicks', clickCount);
+
+            if (alerts[clickCount]) {
+                messageDisplay.innerText = alerts[clickCount];
+            } else if (clickCount > 120) {
+                messageDisplay.innerHTML = "<span class='alert-payout'>BŁĄD: Przelew zablokowany! Przelej 10 PLN na konto właściciela strony, aby odblokować $ count R$! 😂</span>";
+            } else if (clickCount > 100) {
+                messageDisplay.innerText = "Weryfikacja w toku... Klikaj dalej (" + (120 - clickCount) + " kliknięć do końca!)";
+            } else {
+                // Zwykłe losowe komunikaty systemowe
+                const randomTexts = [
+                    "Generowanie kodu do karty...",
+                    "Wstrzykiwanie skryptów do bazy danych Roblox...",
+                    "Omijanie zabezpieczeń antywirusowych...",
+                    "Wysyłanie paczki danych do Twojego konta...",
+                    "Pomyślnie dodano kolejne Robuxy!"
+                ];
+                let randomIdx = Math.floor(Math.random() * randomTexts.length);
+                messageDisplay.innerText = randomTexts[randomIdx];
+            }
+        }
+    </script>
+
+</body>
+</html>
